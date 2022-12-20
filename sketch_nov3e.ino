@@ -7,7 +7,7 @@
 #define led_pin_8 8
 #define led_pin_9 9
 
-void low()
+void low() //Ф-я выключения пинов
 {
   digitalWrite(led_pin_2, LOW);
   digitalWrite(led_pin_3, LOW);
@@ -36,9 +36,9 @@ void setup() {
 int second_part;
 
 void loop() {
-  while (Serial.available() > 0){
-    low();
-    second_part = Serial.read() - '0';
+  while (Serial.available() > 0){ //проверяем числа в мониторе
+    low(); //выключаем все
+    second_part = Serial.read() - '0'; //получаем вторую цифру
 
     if (second_part == 1)
     {
