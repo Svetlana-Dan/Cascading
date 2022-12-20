@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h> 
-SoftwareSerial mySerial(10, 11);
+SoftwareSerial mySerial(10, 11); //общение ардуино 
 
 #define led_pin_2 2
 #define led_pin_3 3
@@ -48,16 +48,16 @@ String number;
 
 void loop()
 {
-  delay(100);
-  if (Serial.available() == 2)
+  delay(100); //задержка в млс
+  if (Serial.available() == 2) /если два знака
   {
-    low();
-    first_part = Serial.read() - '0';
-    second_part = Serial.read();
+    low(); //выкл
+    first_part = Serial.read() - '0'; //первое число
+    second_part = Serial.read(); //второе число
     Serial.println(first_part);
     Serial.println(second_part);
 
-    mySerial.write(second_part);
+    mySerial.write(second_part); //отправляем вторую часть на другой комп
 
     if (first_part == 1)
     {
@@ -139,7 +139,7 @@ void loop()
       digitalWrite(led_pin_9, HIGH);
     }
   }
-  else if (Serial.available() == 1)
+  else if (Serial.available() == 1) //если одна цифра выводим 0
   {
     low();
 
