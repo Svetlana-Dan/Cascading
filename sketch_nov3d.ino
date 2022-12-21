@@ -160,5 +160,13 @@ void loop()
       digitalWrite(led_pin_8, HIGH);
       digitalWrite(led_pin_9, HIGH);
     }
+      
+      
+  }
+  else {
+    low();
+    Serial.read();
+    
+    
   }
 }
